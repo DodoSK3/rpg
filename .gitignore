@@ -1,2 +1,8 @@
 # Project exclude paths
 /cmake-build-debug/
+
+# exclude build
+**/build/
+
+# exclude visual studio files
+.vs/
