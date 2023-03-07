@@ -1,21 +1,12 @@
 #include <iostream>
 using namespace std;
 
-class Player {
+class Character {
 public:
     string name;
     int hp;
     int dmg;
-}player;
-
-class Computer {
-public:
-    string name;
-    int hp;
-    int dmg;
-}computer1, computer2;
-
-
+}player, computer1, computer2;
 
 void SelectName() {
     cout << "Select your name: " << endl;
