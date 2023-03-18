@@ -3,8 +3,8 @@
 void PlayerCharacter::EnterName()
 {
     cout << "Select your name: " << endl;
-    cin >> Character::Data.Name;
-    cout << "Your name is: " << Data.Name << endl << endl;
+    cin >> Character::_data.Name;
+    cout << "Your name is: " << _data.Name << endl << endl;
 }
 
 PlayerCharacter::PlayerCharacter(string name, int hp, int dmg) : Character::Character(name, hp, dmg)

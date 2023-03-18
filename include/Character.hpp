@@ -1,5 +1,8 @@
-#pragma once
+#ifndef CHARACTERDATA_HPP
+#define CHARACTERDATA_HPP
+
 #include <iostream>
+#include "ECharacterStats.hpp"
 
 using namespace std;
 
@@ -12,15 +15,29 @@ struct CharacterData
 
 class Character 
 {
-public:
-    CharacterData Data;
 
+public:
     Character() {};
     Character(string name, int hp, int dmg);
     Character(CharacterData data);
 
     virtual void ShowCharacter();
     void ShowCharacterData();
+    void ShowCharacterData(ECharacterStats stat);
+
     void TakeDamage(const int& damage, const std::shared_ptr<Character> attacker);
+
+    // getter and setter for Data.Name
+    void SetName(string newName);
+    string GetName();
+
+    // getter for Data 
+    CharacterData GetData();
+
+    static int CharacterCount;
+
+protected:
+    CharacterData _data;
 };
 
+#endif // CHARACTERDATA_HPP

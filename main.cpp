@@ -6,6 +6,8 @@
 
 using namespace std;
 
+int Character::CharacterCount;
+
 int main() {
 
     // initialize player, set default CharacterData for a player character
@@ -24,15 +26,16 @@ int main() {
 
     computer1->ShowCharacter();
 
-    computer1->Data.Name = "hovienko";
+    computer1->SetName("Hovienko");
+
+    computer1->ShowCharacterData(ECharacterStats::HP);
 
     for (auto character : dynamicListOfCharacters)
     {
-        cout << "123" << endl;
         character->ShowCharacter();
     }
 
-    computer1->TakeDamage(player->Data.Dmg, player);
+    computer1->TakeDamage(player->GetData().Dmg, player);
 
     for (auto character : dynamicListOfCharacters)
     {
