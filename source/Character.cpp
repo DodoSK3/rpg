@@ -22,9 +22,13 @@ Character::Character(CharacterData data)
 	cout << "2 Pocet Charakterov: " << CharacterCount << endl;
 }
 
-void Character::SetName(string newName)
+// callback function
+// callback funkcie, podstate parameter je funkcia ktora sa spusti tuna
+//, ale jej deklaracia definuje zvycajne caller (ten kto vola funkciu..) v nasom pripade to je main.cpp
+void Character::SetName(const string& newName, void (callback)(const string& message))
 {
 	_data.Name = newName;
+	callback("Name was set successfully!");
 }
 
 string Character::GetName()

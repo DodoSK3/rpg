@@ -8,6 +8,13 @@ using namespace std;
 
 int Character::CharacterCount;
 
+// classic function
+void OnSetName(const string& message)
+{
+    cout << "normalna funkcia\n";
+    cout << "callback response: " << message << "\n";
+}
+
 int main() {
 
     // initialize player, set default CharacterData for a player character
@@ -26,7 +33,25 @@ int main() {
 
     computer1->ShowCharacter();
 
-    computer1->SetName("Hovienko");
+    // LAMBDA FUNKCIA:
+    // #########################
+    // SetName funkcia ma druhy parameter definovanu ako "callback" funkciu.
+    // But si definujeme funkciu a vlozime ako parameter... (OnSetName je definovana vyssie)
+    computer1->SetName("Velke Hovienko", OnSetName);
+
+    // ...alebo mozeme priamo deklarnut funkciu v parametri aj to co sa ma vykonat (to je v '{}' ).
+    // vola sa to Lambda funkcia. Lambda sa definuje takto: [](){}
+    // [] - capture list (je prazdny, ale ak by sme boli v nejakej ne-statickej classe a chceli by sme volat nejaku funkciu, tak tam dame this: [this]
+    // () - parametre lambda funkcie
+    // { } - telo funkcie. Co ma lambda funkcia spravit pri zavolani. V nasom pripade sa tato lambda funkcia zavola v SetName na riadku 31
+    // https://www.programiz.com/cpp-programming/lambda-expression
+    computer1->SetName("Hovienko", [](auto message)
+        // telo lambda funkcie
+        {
+            cout << "Lambda function! Ou yea\n";
+            cout << "callback response: " << message << "\n";
+        });
+
 
     computer1->ShowCharacterData(ECharacterStats::HP);
 

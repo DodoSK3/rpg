@@ -26,9 +26,9 @@ public:
     void ShowCharacterData(ECharacterStats stat);
 
     void TakeDamage(const int& damage, const std::shared_ptr<Character> attacker);
-
+    
     // getter and setter for Data.Name
-    void SetName(string newName);
+    void SetName(const string& newName, void(callback)(const string& message));
     string GetName();
 
     // getter for Data 
